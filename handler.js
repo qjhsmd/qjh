@@ -8,8 +8,8 @@ var dbConfig =require('./DBConfig.js');
 // app.use(bodyparser.json())
 //连接数据库
 
-// var connection = mysql.createConnection(dbConfig.mysql);
-//   connection.connect();
+var connection = mysql.createConnection(dbConfig.mysql);
+  connection.connect();
 
  
 
@@ -34,29 +34,37 @@ module.exports.list =function(req,res){
 };
 
 module.exports.demo =function(req,res){
-    //res.send('list');
-    // res.sendFile(path.join(__dirname,'public','html','list.html'));
-    let result ={
-        msg:'小伙子们，接客啦',
-    }
-    res.json(result);
+var  sql = 'SELECT * FROM user';
+//查
+connection.query(sql,function (err, result) {
+        if(err){
+          console.log('[SELECT ERROR] - ',err.message);
+          return;
+        }
+ 
+       console.log('--------------------------SELECT----------------------------');
+       console.log(result);
+       res.json(result);
+       console.log('------------------------------------------------------------\n\n');  
+});
+    // connection.end();
 };
 
-module.exports.result =function(req,res){
-        var   username = req.body.username;
-        var   password = req.body.password;
-        var   open_id = req.body.open_id;
-        // 输出 JSON 格式
-        var response = [
-            username,
-            password,
-            open_id,
-            ];
+// module.exports.result =function(req,res){
+//         var   username = req.body.username;
+//         var   password = req.body.password;
+//         var   open_id = req.body.open_id;
+//         // 输出 JSON 格式
+//         var response = [
+//             username,
+//             password,
+//             open_id,
+//             ];
            
-        var sql = " INSERT INTO user(username,password,open_id) VALUES(?,?,?)";
-        connection.query(sql, response ,function (error, results, fields) {
-                if (error) throw error;
-                    console.log('The solution is: ', results);
-                   res.send('请求成功');
-                }); 
-};
+//         var sql = " INSERT INTO user(username,password,open_id) VALUES(?,?,?)";
+//         connection.query(sql, response ,function (error, results, fields) {
+//                 if (error) throw error;
+//                     console.log('The solution is: ', results);
+//                    res.send('请求成功');
+//                 }); 
+// };
