@@ -7,8 +7,9 @@ var dbConfig =require('./DBConfig.js');
 // app.use(bodyparser.urlencoded({extende:true}));
 // app.use(bodyparser.json())
 //连接数据库
-var connection = mysql.createConnection(dbConfig.mysql);
-  connection.connect();
+
+// var connection = mysql.createConnection(dbConfig.mysql);
+//   connection.connect();
 
  
 
@@ -26,12 +27,22 @@ module.exports.index =function(req,res){
     // 使用 res.render    但是默认的不能使用 需要配置一个模板引擎才能使用 ejs
     //res.render(path.join(__dirname,'public','html','index.html'));
 };
+
 module.exports.list =function(req,res){
     //res.send('list');
     res.sendFile(path.join(__dirname,'public','html','list.html'));
 };
+
+module.exports.demo =function(req,res){
+    //res.send('list');
+    // res.sendFile(path.join(__dirname,'public','html','list.html'));
+    let result ={
+        msg:'小伙子们，接客啦',
+    }
+    res.json(result);
+};
+
 module.exports.result =function(req,res){
-  
         var   username = req.body.username;
         var   password = req.body.password;
         var   open_id = req.body.open_id;
@@ -48,10 +59,4 @@ module.exports.result =function(req,res){
                     console.log('The solution is: ', results);
                    res.send('请求成功');
                 }); 
-        
-     
-        
-
-    //res.send('list');
-   // res.sendFile(path.join(__dirname,'public','html','list.html'));
 };

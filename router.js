@@ -9,6 +9,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 router.get('/',handler.index);
 router.get('/list',handler.list);
+router.get('/demo',handler.demo);
 router.post('/result',urlencodedParser,handler.result);
 //实现对静态资源的托管
 router.use('/css',express.static(path.join(__dirname,'css')));
