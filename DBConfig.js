@@ -1,9 +1,11 @@
-module.exports ={
-    mysql:{
-        host     : '47.98.213.88',
-        port     :'3306',
-        user     : 'root',
-        password : 'qjh54618482',
-        database : 'pet'
-    }
+
+var mysql = require('mysql')
+var mysqlConfig = {
+    host     : '192.168.198.130',
+    port     :'3306',
+    user     : 'root',
+    password : '123456',
+    database : 'pet'
 }
+
+module.exports.connection = mysql.createConnection(mysqlConfig)
