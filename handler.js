@@ -11,7 +11,8 @@ var index =require('./controller/index.js')
 module.exports.demo = index.demo
 module.exports.menu = index.menu
 module.exports.login = login.login
-
+module.exports.chicken = index.chicken
+module.exports.poisonous_chicken = index.poisonous_chicken
 // 前后端不分离的
 module.exports.index = view.index
 module.exports.result = view.result

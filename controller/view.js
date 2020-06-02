@@ -1,3 +1,8 @@
+
+var path =require('path');
+console.log("==========")
+console.log(path.join(__dirname,'..','public', 'html', 'list.html'))
+console.log("==========")
 module.exports.result = function (req, res) {
     req.session.user = req.body.username;
     var userName = req.body.username;
@@ -28,12 +33,13 @@ module.exports.result = function (req, res) {
     //      res.send(results);
     //    }); 
   
-    res.sendFile(path.join(__dirname, 'public', 'html', 'index.html'));
+    res.sendFile(path.join(__dirname,'..', 'public', 'html', 'index.html'));
     // 使用 res.render    但是默认的不能使用 需要配置一个模板引擎才能使用 ejs
     //res.render(path.join(__dirname,'public','html','index.html'));
   };
   
   module.exports.list = function (req, res) {
     //res.send('list');
-    res.sendFile(path.join(__dirname, 'public', 'html', 'list.html'));
+
+    res.sendFile(path.join(__dirname,'..','public', 'html', 'list.html'));
   };

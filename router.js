@@ -6,12 +6,12 @@ var router =express.Router();
 
 //设置跨域请求头 全局跨域处理 
 router.all('*', function(req, res, next) {
-   // res.header("Access-Control-Allow-Headers", "X-Requested-With");
-   res.header("Access-Control-Allow-Origin", "http://192.168.1.30:8080")
+   res.header("Access-Control-Allow-Headers", "X-Requested-With");
+   res.header("Access-Control-Allow-Origin", "http://192.168.1.30:8081")
    res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild')
    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS")
    res.header("X-Powered-By", ' 3.2.1')
-   res.header("Content-Type", "application/json;charset=utf-8")
+   // res.header("Content-Type", "application/json;charset=utf-8")
    res.header('Access-Control-Allow-Credentials', "true")
    next();
 });
@@ -24,6 +24,8 @@ router.get('/',handler.index);
 router.get('/list',handler.list);
 router.get('/demo',handler.demo);
 router.get('/api/menu',handler.menu);
+router.get('/api/chicken',handler.chicken);
+router.get('/api/poisonous_chicken',handler.poisonous_chicken);
 router.post('/result',handler.result);
 router.post('/api/login',handler.login);
 //实现对静态资源的托管

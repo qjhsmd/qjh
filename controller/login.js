@@ -1,7 +1,6 @@
 
 module.exports.login = function (req, res) {
     req.session.user = req.body.username;
-    
     var sql = 'SELECT * FROM user  WHERE userName="'+ req.body.username + '"'; //查
     req.app.locals.connection.query(sql, function (err, result) {
       if (err) {
