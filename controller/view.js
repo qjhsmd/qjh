@@ -1,8 +1,5 @@
 
 var path =require('path');
-console.log("==========")
-console.log(path.join(__dirname,'..','public', 'html', 'list.html'))
-console.log("==========")
 module.exports.result = function (req, res) {
     req.session.user = req.body.username;
     var userName = req.body.username;

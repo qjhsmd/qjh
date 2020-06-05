@@ -7,7 +7,7 @@ var router =express.Router();
 //设置跨域请求头 全局跨域处理 
 router.all('*', function(req, res, next) {
    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-   res.header("Access-Control-Allow-Origin", "http://192.168.1.30:8081")
+   res.header("Access-Control-Allow-Origin", "http://192.168.1.30:8080")
    res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild')
    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS")
    res.header("X-Powered-By", ' 3.2.1')
